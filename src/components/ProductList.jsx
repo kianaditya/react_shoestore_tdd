@@ -17,7 +17,7 @@ export class ProductList extends Component {
 
 ProductList.propTypes = {
   products: PropTypes.array.isRequired,
-  onProductSelect: React.PropTypes.func.isRequired
+  onProductSelect: PropTypes.func.isRequired
 
 };
 
