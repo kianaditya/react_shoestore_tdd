@@ -6,7 +6,7 @@ export class ProductList extends Component {
     return (
       <ul>
         {this.props.products.map(product => (
-          <li key={product.id}>{product.name}</li>
+          <li key={product.id}>{product.name} {product.brand}</li>
         ))}
       </ul>
     );
