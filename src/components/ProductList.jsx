@@ -1,19 +1,20 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 export class ProductList extends Component {
   render() {
     return (
-      <div>
-        ProductList
-      </div>
-    )
+      <ul>
+        {this.props.products.map(product => (
+          <li key={product.id}>{product.name}</li>
+        ))}
+      </ul>
+    );
   }
 }
 
 ProductList.propTypes = {
-    products: PropTypes.array.isRequired
-}
+  products: PropTypes.array.isRequired
+};
 
-export default ProductList
+export default ProductList;
