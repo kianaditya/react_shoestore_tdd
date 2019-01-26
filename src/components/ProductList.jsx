@@ -6,7 +6,9 @@ export class ProductList extends Component {
     return (
       <ul>
         {this.props.products.map(product => (
-          <li key={product.id}>{product.name} {product.brand}</li>
+          <li key={product.id}>
+            {product.name} {product.brand}
+          </li>
         ))}
       </ul>
     );
@@ -14,7 +16,9 @@ export class ProductList extends Component {
 }
 
 ProductList.propTypes = {
-  products: PropTypes.array.isRequired
+  products: PropTypes.array.isRequired,
+  onProductSelect: React.PropTypes.func.isRequired
+
 };
 
 export default ProductList;
