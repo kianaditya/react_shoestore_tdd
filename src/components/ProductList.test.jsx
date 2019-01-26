@@ -1,40 +1,29 @@
-import React from 'react';
-import {shallow} from 'enzyme';
-import ProductList from './ProductList';
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import React from "react";
+import { shallow } from "enzyme";
+import ProductList from "./ProductList";
+import { configure } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
 configure({ adapter: new Adapter() });
 
-
-it('should render a list of products as an unordered list', () => {
-  const mockProducts = [
-    {id: 1, name: 'Mock Product 1', brand: 'MockBrandA'},
-    {id: 2, name: 'Mock Product 2', brand: 'MockBrandB'},
-    {id: 3, name: 'Mock Product 3', brand: 'MockBrandC'},
+let mockProducts, wrapper;
+beforeEach(() => {
+  mockProducts = [
+    { id: 1, name: "Mock Product 1", brand: "MockBrandA" },
+    { id: 2, name: "Mock Product 2", brand: "MockBrandB" },
+    { id: 3, name: "Mock Product 3", brand: "MockBrandC" }
   ];
-  const wrapper = shallow(<ProductList products={mockProducts}/>);
-  expect(wrapper.find('li').length).toEqual(mockProducts.length); // 3
+  wrapper = shallow(<ProductList products={mockProducts} />);
 });
 
-it('should display the product name in each `<li>` element', () => {
-    const mockProducts = [
-      {id: 1, name: 'Mock Product 1', brand: 'MockBrandA'},
-      {id: 2, name: 'Mock Product 2', brand: 'MockBrandB'},
-      {id: 3, name: 'Mock Product 3', brand: 'MockBrandC'},
-    ];
-    const wrapper = shallow(<ProductList products={mockProducts}/>);
-    const firstElement = wrapper.find('li').first();
-    // Check that the product name is contained somewhere in this element
-    expect(firstElement.contains(mockProducts[0].name)).toEqual(true);
-  });
-  it('should display the brand name in each `<li>` element', () => {
-    const mockProducts = [
-      {id: 1, name: 'Mock Product 1', brand: 'MockBrandA'},
-      {id: 2, name: 'Mock Product 2', brand: 'MockBrandB'},
-      {id: 3, name: 'Mock Product 3', brand: 'MockBrandC'},
-    ];
-    const wrapper = shallow(<ProductList products={mockProducts}/>);
-    const firstElement = wrapper.find('li').first();
-    // Check that the brand name is contained somewhere in this element
-    expect(firstElement.contains(mockProducts[0].brand)).toEqual(true);
-  });
+it("should render a list of products as an unordered list", () => {
+  expect(wrapper.find("li").length).toEqual(mockProducts.length); // 3
+});
+
+it("should display the product name in each `<li>` element", () => {
+  const firstElement = wrapper.find("li").first();
+  expect(firstElement.contains(mockProducts[0].name)).toEqual(true);
+});
+it("should display the brand name in each `<li>` element", () => {
+  const firstElement = wrapper.find("li").first();
+  expect(firstElement.contains(mockProducts[0].brand)).toEqual(true);
+});
