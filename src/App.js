@@ -28,6 +28,7 @@ class App extends Component {
     return (
       <div className="App">
         <header>My Shoe Store </header> 
+        <p>You have selected {this.state.selectedProducts.length} product(s).</p>
         <ProductList 
         products={this.state.products} 
         onProductSelect={this.handleProductSelect.bind(this)}

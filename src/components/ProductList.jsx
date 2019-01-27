@@ -6,7 +6,7 @@ export class ProductList extends Component {
     return (
       <ul>
         {this.props.products.map(product => (
-          <li key={product.id}>
+          <li key={product.id} onClick={() => this.props.onProductSelect(product)}>
             {product.name} {product.brand}
           </li>
         ))}
